@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Resultado</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='../asset/css/global.css'>
+    <script src='../js/resultado.js'></script>
+
+    <!-- Librerias -->
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/litera/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- ajax jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="inputData">
+            <form>
+                <fieldset>
+                    <legend style="font-size: 3rem; margin-bottom: 2rem;"><strong>Resultado</strong></legend>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">posicion</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="posicion" id="posicion" value=""
+                                placeholder="Ingresar posicion">
+                        </div>
+
+                        <label class="col-sm-2 col-form-label">Vueltas</label>
+                        <div class="col-sm-10">
+                            </br>
+                            <input type="text" disabled class="form-control" name="vueltas" id="vueltas" value=""
+                                placeholder="vueltas">
+                        </div>
+
+                        <label class="col-sm-2 col-form-label">Mejor_vuelta</label>
+                        <div class="col-sm-10">
+                            </br>
+                            <input type="text" disabled class="form-control" name="mejor_vuelta" id="mejor_vuelta" value=""
+                                placeholder="mejor_vuelta">
+                        </div>
+
+                        <label class="col-sm-2 col-form-label">Piloto</label>
+                        <div class="col-sm-10">
+                            </br>
+                            <select class="form-select" id="piloto">
+                                <option selected>--Seleccione--</option>
+                            </select>
+                        </div>
+
+                        <label class="col-sm-2 col-form-label">Equipo</label>
+                        <div class="col-sm-10">
+                            </br>
+                            <select class="form-select" id="equipo">
+                                <option selected>--Seleccione--</option>
+                            </select>
+                        </div>
+
+                        <label class="col-sm-2 col-form-label">Carrera</label>
+                        <div class="col-sm-10">
+                            </br>
+                            <select class="form-select" id="carrera">
+                                <option selected>--Seleccione--</option>
+                            </select>
+                        </div>
+
+
+                        <label class="col-sm-2 col-form-label">State</label>
+                        <div class="col-sm-10">
+                            </br>
+                            <select class="form-select" id="state">
+                                <option selected>--Seleccione--</option>
+                                <option value="1">Activo</option>
+                                <option value="0">Inactivo</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div id="buttonData">
+            <br>
+            <button name="btnAgregar" onclick="save()" class="btn btn-success">Agregar</button>
+        </div>
+        <div id="outputData">           
+        </br>
+            <table class="table table-hover text-center">
+                <thead>
+                    <tr class="table-dark">
+                        <th>Posicion</th>
+                        <th>vueltas</th>
+                        <th>Mejor_vuelta</th>
+                        <th>state</th>
+                        <th colspan="2">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="resultData">
+                     <!-- Aquí llegan los datos de la bd -->                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+   loadData();
+   selectPiloto();
+   selectEquipo();
+   selectCarrera();
+</script>
